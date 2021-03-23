@@ -26,17 +26,13 @@ Directory to save ISFrag detailed csv file in.
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
+Returns nothing. Only writes CSV file to user specified directory.
 }
 \references{
 %% ~put references to the literature/web site here ~
 }
 \author{
-%%  ~~who you are~~
+Sam Shen, Jian Guo, Tao Huan
 }
 \note{
 %%  ~~further notes~~
@@ -48,17 +44,23 @@ Directory to save ISFrag detailed csv file in.
 %% ~~objects to See Also as \code{\link{help}}, ~~~
 }
 \examples{
-##---- Should be DIRECTLY executable !! ----
-##-- ==>  Define data, use random,
-##--	or do  help(data=index)  for the standard data sets.
+library(ISFrag)
+MS1directory <- "X:/Users/Sam_Shen/ISFtest20210127/HILIC(+)/HILIC(+)3/fullscan"
+MS2directory <- "X:/Users/Sam_Shen/ISFtest20210127/HILIC(+)/HILIC(+)3/DDA"
+type <- "single"
+lib_directory <- "E:/SAM"
+lib_name <- "convertedLibraryPos.msp"
 
-## The function is currently defined as
-function (ISF_List, featureID, directory)
-{
-    write.csv(ISF_List[[which(grepl(featureID, names(ISF_List),
-        fixed = TRUE) == T)]], file = paste0(featureID, "_Detailed.csv"),
-        row.names = T, col.names = T)
-  }
+featureTable <- generate.featuretable(MS1directory = MS1directory, type = type, ppm=10, peakwidth=c(10,120),
+    mzdiff = 0.01, snthresh = 6, integrate = 1, prefilter = c(3,100), noise = 100, bw = 5, mzwid = 0.015,
+    max = 100, CAMERA = F)
+featureTable <- ms2.tofeaturetable(MS2directory = MS2directory, featureTable = featureTable)
+featureTable <- feature.annotation(featureTable = featureTable, lib_directory = lib_directory, lib_name = lib_name, dp = 0.7)
+level3 <- find.level3(MS1directory = MS1directory, MS1.files = MS1.files, featureTable = featureTable, type = type)
+level2 <- find.level2(ISFtable = level3)
+level1 <- find.level1(ISF_putative = level2)
+results <- get.ISFrag.results(ISF_List = level1, featureTable = featureTable)
+export.ISFrag.detailed(ISF_List = level1, featureID = "F1", directory = MS2directory)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory (show via RShowDoc("KEYWORDS")):
