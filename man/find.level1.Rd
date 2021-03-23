@@ -2,10 +2,10 @@
 \alias{find.level1}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Finds Level 1 In-source Fragmentations
+Find Level 1 In-source Fragments
 }
 \description{
-Further refines Level 2 in-source fragment list of tables generated in find.level2() function to label additional Level 1 in-source fragments.
+Lable level 1 in-source fragment features on the top of the list genereated from find.level2.
 }
 \usage{
 find.level1(ISF_putative, ms2.tol = 0.02)
@@ -43,10 +43,10 @@ Sam Shen, Jian Guo, Tao Huan
 }
 \examples{
 library(ISFrag)
-MS1directory <- "X:/Users/Sam_Shen/ISFtest20210127/HILIC(+)/HILIC(+)3/fullscan"
-MS2directory <- "X:/Users/Sam_Shen/ISFtest20210127/HILIC(+)/HILIC(+)3/DDA"
+MS1directory <- "X:/ISFtest20210127/HILIC(+)/HILIC(+)3/fullscan"
+MS2directory <- "X:/ISFtest20210127/HILIC(+)/HILIC(+)3/DDA"
 type <- "single"
-lib_directory <- "E:/SAM"
+lib_directory <- "E:/ISFtest20210127"
 lib_name <- "convertedLibraryPos.msp"
 
 featureTable <- generate.featuretable(MS1directory = MS1directory, type = type, ppm=10, peakwidth=c(10,120),

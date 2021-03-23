@@ -2,7 +2,7 @@
 \alias{find.level3}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Finds Level 3 In-source Fragmentations
+Find Level 3 In-source Fragments
 }
 \description{
 Creates a list of tables, where each table contains a parent feature and all its Level 3 in-source fragment features.
@@ -41,7 +41,7 @@ Retention time range used to extract feature EIC. Default value is 15 seconds.
 %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
-Returns a list object containing dataframes, where each dataframes contains a parent feature and all its Level 3 in-source fragment features.
+Returns a list object containing dataframes, where each dataframes contains a parent feature and all its level 3 in-source fragment features.
 }
 \references{
 %% ~put references to the literature/web site here ~

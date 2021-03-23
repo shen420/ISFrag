@@ -2,7 +2,7 @@
 \alias{export.ISFrag.results}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Export ALL ISFrag Information
+Export All ISFrag Information
 }
 \description{
 Export complete feature table with ISFrag parent-fragment annotations in csv format.
@@ -42,10 +42,10 @@ Sam Shen, Jian Guo, Tao Huan
 }
 \examples{
 library(ISFrag)
-MS1directory <- "X:/Users/Sam_Shen/ISFtest20210127/HILIC(+)/HILIC(+)3/fullscan"
-MS2directory <- "X:/Users/Sam_Shen/ISFtest20210127/HILIC(+)/HILIC(+)3/DDA"
+MS1directory <- "X:/ISFtest20210127/HILIC(+)/HILIC(+)3/fullscan"
+MS2directory <- "X:/ISFtest20210127/HILIC(+)/HILIC(+)3/DDA"
 type <- "single"
-lib_directory <- "E:/SAM"
+lib_directory <- "E:/ISFtest20210127/"
 lib_name <- "convertedLibraryPos.msp"
 
 featureTable <- generate.featuretable(MS1directory = MS1directory, type = type, ppm=10, peakwidth=c(10,120),

@@ -2,7 +2,7 @@
 \alias{generate.featuretable}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Generate Dataframe of Features
+Generate Feature Table
 }
 \description{
 Generate feature table from raw .mzXML files using XCMS's CentWave peak detection algorithm. Perform feature alignment for multi-file analysis.
@@ -19,25 +19,25 @@ Directory of folder containing all .mzXML files containing MS1 scans. This folde
 For single sample analysis: type = "single", for multiple samples analysis: type = "multi".
 }
   \item{ppm}{
-numeric(1) defining the maximal tolerated m/z deviation in consecutive scans in parts per million (ppm) for the initial ROI definition. Default = 10.
+Numeric(1) defining the maximal tolerated m/z deviation in consecutive scans in parts per million (ppm) for the initial ROI definition. Default = 10.
 }
   \item{peakwidth}{
-numeric(2) with the expected approximate peak width in chromatographic space. Given as a range (min, max) in seconds. Default = c(10,120).
+Numeric(2) with the expected approximate peak width in chromatographic space. Given as a range (min, max) in seconds. Default = c(10,120).
 }
   \item{mzdiff}{
-numeric(1) representing the minimum difference in m/z dimension required for peaks with overlapping retention times; can be negative to allow overlap. During peak post-processing, peaks defined to be overlapping are reduced to the one peak with the largest signal. Default = 0.01.
+Numeric(1) representing the minimum difference in m/z dimension required for peaks with overlapping retention times; can be negative to allow overlap. During peak post-processing, peaks defined to be overlapping are reduced to the one peak with the largest signal. Default = 0.01.
 }
   \item{snthresh}{
-numeric(1) defining the signal to noise ratio cutoff. Default = 6.
+Numeric(1) defining the signal to noise ratio cutoff. Default = 6.
 }
   \item{integrate}{
 Integration method. For integrate = 1 peak limits are found through descent on the mexican hat filtered data, for integrate = 2 the descent is done on the real data. The latter method is more accurate but prone to noise, while the former is more robust, but less exact. Default = 1.
 }
   \item{prefilter}{
-numeric(2): c(k, I) specifying the prefilter step for the first analysis step (ROI detection). Mass traces are only retained if they contain at least k peaks with intensity >= I. Default = c(3,100).
+Numeric(2): c(k, I) specifying the prefilter step for the first analysis step (ROI detection). Mass traces are only retained if they contain at least k peaks with intensity >= I. Default = c(3,100).
 }
   \item{noise}{
-numeric(1) allowing to set a minimum intensity required for centroids to be considered in the first analysis step (centroids with intensity < noise are omitted from ROI detection). Default = 100.
+Numeric(1) allowing to set a minimum intensity required for centroids to be considered in the first analysis step (centroids with intensity < noise are omitted from ROI detection). Default = 100.
 }
   \item{bw}{
 Sample alignment: bandwidth (standard deviation or half width at half maximum) of gaussian smoothing kernel to apply to the peak density chromatogram. Default = 5.

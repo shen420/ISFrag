@@ -2,7 +2,7 @@
 \alias{add.features}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Uses or Adds Existing Feature Table
+Use or Add Existing Feature Table
 }
 \description{
 Perform ISFrag analysis using user provided feature table in CSV format, or combine this feature table with XCMS feature table extracted in previous step.
@@ -23,15 +23,12 @@ Feature table from generate.featuretable() function. Optional argument.
 }
 }
 \details{
-The existing feature table must be in CSV format and contains only the following columns in order: "mz", "rt", "rtmin", "rtmax", "intensity1". An additional column containing intensity values is needed for each additional sample in multi-sample analysis.
+The existing feature table must be in CSV format and contains only the following columns in order: "mz", "rt", "rtmin", "rtmax", "intensity". An additional column containing intensity values is needed for each additional sample in multi-sample analysis.
 }
 \value{
-Returns a feature table in dataframe format, containing the following columns in order: "mz", "rt", "rtmin", "rtmax", "intensity1". Multiple intensity columns for multi-sample analysis.
+Returns a feature table in dataframe format, containing the following columns in order: "mz", "rt", "rtmin", "rtmax", "intensity". Multiple intensity columns for multi-sample analysis.
 \references{
 %% ~put references to the literature/web site here ~
-}
-\author{
-Sam Shen, Jian Guo, Tao Huan
 }
 }
 \note{
@@ -45,18 +42,18 @@ Sam Shen, Jian Guo, Tao Huan
 }
 \examples{
 library(ISFrag)
-MS1directory <- "X:/Users/Sam_Shen/ISFtest20210127/HILIC(+)/HILIC(+)3/fullscan"
+MS1directory <- "X:/ISFtest20210127/HILIC(+)/HILIC(+)3/fullscan"
 type <- "single"
-ft_directory <- "X:/Users/Sam_Shen/ISFtest20210127/HILIC(+)/HILIC(+)3/fullscan"
+ft_directory <- "X:/ISFtest20210127/HILIC(+)/HILIC(+)3/fullscan"
 ft_name <- "HILIC(+)featuretable.csv"
 
-#Combination of XCMS and user provided feature table
+# Combination of XCMS and additional user-provided feature table
 featureTable <- generate.featuretable(MS1directory = MS1directory, type = type, ppm=10, peakwidth=c(10,120),
     mzdiff = 0.01, snthresh = 6, integrate = 1, prefilter = c(3,100), noise = 100, bw = 5, mzwid = 0.015,
     max = 100, CAMERA = F)
 featureTable <- add.features(featureTable = featureTable, ft_directory = ft_directory, ft_name = ft_name)
 
-# or only user provided feature table
+# Only user-provided feature table
 featureTable <- add.features(ft_directory = ft_directory, ft_name = ft_name)
 
 
