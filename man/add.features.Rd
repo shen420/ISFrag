@@ -30,7 +30,6 @@ Returns a feature table in dataframe format, containing the following columns in
 \references{
 %% ~put references to the literature/web site here ~
 }
-}
 \note{
 %%  ~~further notes~~
 }
