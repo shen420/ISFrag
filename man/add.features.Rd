@@ -27,6 +27,7 @@ The existing feature table must be in CSV format and contains only the following
 }
 \value{
 Returns a feature table in dataframe format, containing the following columns in order: "mz", "rt", "rtmin", "rtmax", "intensity". Multiple intensity columns for multi-sample analysis.
+}
 \references{
 %% ~put references to the literature/web site here ~
 }
